@@ -1,0 +1,15 @@
+server:
+  port: 2020
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost.5432/estoutic
+    driver-class-name: org.postgresql.Driver
+    username: admin@mail.ru
+    password: admin
+  jpa:
+    database-platform: org,hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+
+
