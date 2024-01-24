@@ -1,5 +1,7 @@
 server:
-  port: 2020
+  port: 2040
+  servlet:
+    context-path: /api
 
 spring:
   datasource:
