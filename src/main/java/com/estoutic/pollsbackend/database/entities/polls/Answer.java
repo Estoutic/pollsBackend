@@ -1,5 +1,6 @@
 package com.estoutic.pollsbackend.database.entities.polls;
 
+import com.estoutic.pollsbackend.models.poll.fileds.AnswerDto;
 import com.estoutic.pollsbackend.models.poll.fileds.QuestionDto;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -25,7 +26,9 @@ public class Answer {
     @JoinColumn(name="question_id", nullable=false)
     private Question question;
 
-    public Answer(QuestionDto questionDto) {
-        this.description = questionDto.getDescription();
+    public Answer(AnswerDto answerDto, Question question) {
+        this.description = answerDto.getDescription();
+        this.question = question;
+        question.addAnswer(this);
     }
 }

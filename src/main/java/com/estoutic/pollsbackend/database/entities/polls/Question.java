@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -29,9 +31,12 @@ public class Question {
     @OneToMany(mappedBy="question")
     private Set<Answer> answers;
 
+    public void addAnswer(Answer answer){
+        this.answers.add(answer);
+    }
 
-    public Question(QuestionDto questionDto, List<Answer> answerDtoList) {
+    public Question(QuestionDto questionDto) {
+        this.answers = new HashSet<>();
         this.description = questionDto.getDescription();
-        answers.addAll(answerDtoList);
     }
 }

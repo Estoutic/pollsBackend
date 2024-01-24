@@ -31,8 +31,8 @@ public class Poll {
     @JoinColumn(name = "question_id", referencedColumnName = "id")
     private Question question;
 
-    public Poll(PollDto pollDto) {
+    public Poll(PollDto pollDto,Question question) {
         this.state = pollDto.getState();
-
+        this.question = question;
     }
 }
