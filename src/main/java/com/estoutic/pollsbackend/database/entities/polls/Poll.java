@@ -1,5 +1,6 @@
 package com.estoutic.pollsbackend.database.entities.polls;
 
+import com.estoutic.pollsbackend.database.entities.Category;
 import com.estoutic.pollsbackend.models.poll.PollDto;
 import com.estoutic.pollsbackend.models.poll.fileds.QuestionDto;
 import jakarta.persistence.*;
@@ -31,8 +32,14 @@ public class Poll {
     @JoinColumn(name = "question_id", referencedColumnName = "id")
     private Question question;
 
-    public Poll(PollDto pollDto,Question question) {
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+    public Poll(PollDto pollDto, Question question, Category category) {
         this.state = pollDto.getState();
         this.question = question;
+        this.category = category;
+        category.addPoll(this);
     }
 }
