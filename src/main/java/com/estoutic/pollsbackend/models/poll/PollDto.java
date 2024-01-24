@@ -21,7 +21,7 @@ public class PollDto {
 
     private boolean state;
 
-    private CategoryDto type;
+    private String categoryId;
 
     private QuestionDto question;
 
