@@ -22,7 +22,7 @@ public class Poll {
     @Column(length = 64, updatable = false, nullable = false)
     private String id;
 
-    private boolean state;
+    private Boolean state;
 
     @CreationTimestamp
     @Column(columnDefinition = "TIMESTAMP")
