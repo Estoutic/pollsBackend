@@ -37,6 +37,5 @@ public class PollDto {
         this.state = poll.getState();
         this.question = new QuestionDto(poll.getQuestion());
         this.answers = poll.getQuestion().getAnswers().stream().map(AnswerDto::new).toList();
-
     }
 }

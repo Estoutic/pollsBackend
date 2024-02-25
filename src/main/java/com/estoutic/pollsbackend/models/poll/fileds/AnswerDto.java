@@ -14,6 +14,8 @@ public class AnswerDto {
 
     private String description;
 
+    private Integer count;
+
     @JsonCreator
     public AnswerDto(@JsonProperty("description") String description) {
         this.description = description;
@@ -22,5 +24,6 @@ public class AnswerDto {
     public AnswerDto(Answer answer) {
         this.pollId = answer.getId();
         this.description = answer.getDescription();
+        this.count = 30;
     }
 }

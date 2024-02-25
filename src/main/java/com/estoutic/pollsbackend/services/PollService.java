@@ -8,5 +8,5 @@ public interface PollService {
 
     String save(PollDto pollDto);
 
-    List<PollDto> getAllByCategory(String categoryId);
+    List<PollDto> getAllPolls();
 }

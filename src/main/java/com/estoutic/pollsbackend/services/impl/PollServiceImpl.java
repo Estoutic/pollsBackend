@@ -11,7 +11,6 @@ import com.estoutic.pollsbackend.database.repositories.polls.QuestionRepository;
 import com.estoutic.pollsbackend.models.poll.PollDto;
 import com.estoutic.pollsbackend.services.PollService;
 import com.estoutic.pollsbackend.services.exceptions.category.CategoryDoesNotExistException;
-import org.apache.tomcat.jni.Pool;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,10 +46,7 @@ public class PollServiceImpl implements PollService {
     }
 
     @Override
-    public List<PollDto> getAllByCategory(String categoryId) {
-        Category category = categoryRepository.findById(categoryId).orElseThrow(CategoryDoesNotExistException::new);
-
-        List<Poll> polls = pollRepository.findAllByCategory(category);
-        return polls.stream().map(PollDto::new).toList();
+    public List<PollDto> getAllPolls() {
+        return pollRepository.findAll().stream().map(PollDto::new).toList();
     }
 }

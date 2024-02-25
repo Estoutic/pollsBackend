@@ -21,8 +21,8 @@ public class PollController {
         return pollService.save(pollDto);
     }
 
-    @GetMapping("/category/{id}")
-    public List<PollDto> getAllByCategory(@PathVariable(name = "id") String categoryId){
-        return pollService.getAllByCategory(categoryId);
+    @GetMapping("/all")
+    public List<PollDto> getAllPolls(){
+        return pollService.getAllPolls();
     }
 }
